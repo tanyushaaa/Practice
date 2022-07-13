@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/eef36c3ad9.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="widget form">
+            <form id="inputForm" onsubmit="return getOrthodromy(this)">
+                <table>
+                    <tr>
+                        <th>Параметры</th>
+                        <th>Ввод данных</th>
+                        <th>Описание</th>
+                    </tr>
+                    <tr>
+                        <td><p class="varname">point1</p></td>
+                        <td>
+                            <input 
+                            type="text" 
+                            id="inputPoint1" 
+                            placeholder="POINT(lat lon)" 
+                            required 
+                            pattern="[Pp][Oo][Ii][Nn][Tt]\(-?\d+(\.\d+)? -?\d+(\.\d+)?\)">
+
+                            <button type="button" class="choseCoord" id="coordPoint1" onclick="addMarker(this)">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </button>
+                        </td>
+                        <td>Начальная точка в формате WKT</td>
+                    </tr>
+                    <tr>
+                        <td><p class="varname">point2</p></td>
+                        <td>
+                            <input 
+                            type="text" 
+                            id="inputPoint2" 
+                            placeholder="POINT(lat lon)" 
+                            required 
+                            pattern="[Pp][Oo][Ii][Nn][Tt]\(-?\d+(\.\d+)? -?\d+(\.\d+)?\)">
+
+                            <button type="button" class="choseCoord" id="coordPoint2" onclick="addMarker(this)">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </button>
+                        </td>
+                        <td>Конечная точка в формате WKT</td>
+                    </tr>
+                    <tr>
+                        <td><p class="varname">count</p></td>
+                        <td><input type="number" min="0" id="inputCount" placeholder="10"></td>
+                        <td>Количество рассчитываемых точек.<br>По умолчанию 10</td>
+                    </tr>
+                </table>
+            </form>
+            <button class="submit" type="submit" form="inputForm">submit</button>
+        </div>
+        <div class="widget geo"><div id="orthodromyMap"></div></div>
+    </div>
+
+    <div class="flex-container">
+        <div class="widget form">
+            <form id="inputForm2" onsubmit="return getElevation(this)">
+                <table>
+                    <tr>
+                        <th>Параметры</th>
+                        <th>Ввод данных</th>
+                        <th>Описание</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="varname">point</p>
+                        </td>
+                        <td>
+                            <input 
+                            type="text" 
+                            id="inputPoint" 
+                            placeholder="POINT(lat lon)" 
+                            required 
+                            pattern="[Pp][Oo][Ii][Nn][Tt]\(-?\d+(\.\d+)? -?\d+(\.\d+)?\)">
+                            
+                            <button type="button" class="choseCoord" id="coordPoint" onclick="addMarker2(this)">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </button>
+                        </td>
+                        <td>Начальная точка в формате WKT</td>
+                    </tr>
+                </table>
+            </form>
+            <button class="submit" type="submit" form="inputForm2">submit</button>
+        </div>
+        <div class="widget geo"><div id="elevationMap"></div></div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static',filename='scripts/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+html, body{
+    height: 100%;
+    font-family: 'Karla', sans-serif;
+    background-color: #0d1321;
+}
+
+.flex-container{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.varname{
+    font-family: 'Karla', sans-serif;
+}
+
+button.submit{
+    background-color: #748cab;
+    border: 1px solid #0d1321;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.form{
+    width: 49%;
+}
+
+.widget{
+    background-color: #3e5c76;
+    border-radius: 5px;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+
+.geo{
+    height: 300px;
+    width: 49%;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#orthodromyMap{
+    height: 98%;
+    width: 98%;
+    /* margin: 10px; */
+}
+
+#elevationMap{
+    height: 98%;
+    width: 98%;
+    /* margin: 10px; */
+}
+
+th{
+    font-size: 16px;
+}
+
+td{
+    font-size: 14px;
+    padding: 5px;
+}
+
+p.varname{
+    color: white;
+    background-color: #1d2d44;
+    border-radius: 10px;
+    text-align: center;
+    width: min-content;
+    padding: 1px 5px;
+}
+
+input{
+    height: 26px;
+    width: 200px;
+    border-radius: 2px 0px 0px 2px;
+    border-color: white;
+    border-width: 1px;
+}
+
+.choseCoord{
+    height: 30px;
+    width: 30px;
+    border-radius: 0px 2px 2px 0px;
+    border-color: white;
+    border-width: 1px;
+}
+
+input:invalid{
+    box-shadow: 0 0 5px 1px red;
+}
+
+/* input:valid{
+    border: 1.5px solid rgb(39, 133, 18);
+} */
